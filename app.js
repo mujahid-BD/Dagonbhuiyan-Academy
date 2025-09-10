@@ -1,2 +1,2 @@
-// Future JS Features (slider, notice updates)
-console.log("High School Website Loaded ✅");
+// Simple animation / console test
+console.log("Modern School Website Loaded ✅");
