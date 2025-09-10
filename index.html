@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>স্কুল ম্যানেজমেন্ট - Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <h1 class="brand">আমার হাই-স্কুল - Demo</h1>
+      <div class="actions">
+        <select id="roleSelect" aria-label="Switch role">
+          <option value="guest">Guest</option>
+          <option value="admin">Admin</option>
+          <option value="teacher">Teacher</option>
+          <option value="student">Student</option>
+        </select>
+        <button id="loginBtn">Login (simulate)</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="dashboard">ড্যাশবোর্ড</button>
+      <button class="tab-btn" data-tab="students">স্টুডেন্ট</button>
+      <button class="tab-btn" data-tab="teachers">টিচার</button>
+      <button class="tab-btn" data-tab="attendance">অ্যাটেনডেন্স</button>
+      <button class="tab-btn" data-tab="exams">এক্সাম</button>
+    </nav>
+
+    <section id="dashboard" class="tab active">
+      <h2>ড্যাশবোর্ড</h2>
+      <div class="cards">
+        <div class="card"><strong id="countStudents">0</strong><div>Students</div></div>
+        <div class="card"><strong id="countTeachers">0</strong><div>Teachers</div></div>
+        <div class="card"><strong id="countAbsent">0</strong><div>Today Absent</div></div>
+      </div>
+      <p>Demo সার্বিক তথ্য। ডাটা সব LocalStorage-এ সেভ হয়।</p>
+    </section>
+
+    <section id="students" class="tab">
+      <h2>স্টুডেন্ট ম্যানেজমেন্ট</h2>
+      <form id="studentForm" class="inline-form">
+        <input type="text" id="s_name" placeholder="নাম" required>
+        <input type="text" id="s_adm" placeholder="Admission No" required>
+        <select id="s_class"><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select>
+        <button type="submit">Add / Update</button>
+        <button type="button" id="clearStudents">Clear All</button>
+      </form>
+
+      <div class="table-wrap">
+        <table id="studentsTable">
+          <thead><tr><th>Admission</th><th>Name</th><th>Class</th><th>Action</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="teachers" class="tab">
+      <h2>Teacher Management</h2>
+      <form id="teacherForm" class="inline-form">
+        <input type="text" id="t_name" placeholder="Name" required>
+        <input type="text" id="t_emp" placeholder="Employee No" required>
+        <button type="submit">Add / Update</button>
+        <button type="button" id="clearTeachers">Clear All</button>
+      </form>
+      <div class="table-wrap">
+        <table id="teachersTable"><thead><tr><th>Emp</th><th>Name</th><th>Action</th></tr></thead><tbody></tbody></table>
+      </div>
+    </section>
+
+    <section id="attendance" class="tab">
+      <h2>Attendance - Today</h2>
+      <div class="attendance-controls">
+        <button id="markAllPresent">Mark All Present</button>
+        <button id="saveAttendance">Save Attendance</button>
+        <button id="exportAttendance">Export CSV</button>
+      </div>
+      <div class="table-wrap">
+        <table id="attendanceTable"><thead><tr><th>Admission</th><th>Name</th><th>Status</th></tr></thead><tbody></tbody></table>
+      </div>
+    </section>
+
+    <section id="exams" class="tab">
+      <h2>Exams</h2>
+      <form id="examForm" class="inline-form">
+        <input type="text" id="e_name" placeholder="Exam Name" required>
+        <input type="date" id="e_date">
+        <button type="submit">Create</button>
+        <button type="button" id="clearExams">Clear All</button>
+      </form>
+      <ul id="examsList"></ul>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    © 2025 আমার হাই-স্কুল - Demo — LocalStorage-based
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
