@@ -1,151 +1,59 @@
-/* Font & Reset */
 body {
-  margin: 0;
-  font-family: 'Noto Sans Bengali', sans-serif;
-  background: #f5f7fa;
-  color: #333;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    direction: rtl; /* Bengali text-এর জন্য RTL, চাইলে ltr করো */
+    text-align: right; /* Bengali-এর জন্য right align */
 }
 
-/* Header (Glass Effect) */
 header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0, 64, 128, 0.7);
-  backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
-  z-index: 1000;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 20px;
 }
 
-header .logo {
-  font-size: 24px;
-  font-weight: 700;
-  color: white;
+h1, h2, h3 {
+    margin: 10px 0;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-  margin: 0;
-  padding: 0;
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
 }
 
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
+.notice, .news {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-nav ul li a:hover {
-  color: #ffdd57;
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
-/* Hero Section */
-.hero {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-              url('banner.jpg') center/cover no-repeat;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-  padding: 0 20px;
+.gallery-img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.hero-content h1 {
-  font-size: 50px;
-  margin-bottom: 20px;
-}
-
-.hero-content p {
-  font-size: 20px;
-  margin-bottom: 30px;
-}
-
-.btn {
-  padding: 12px 25px;
-  background: #ffdd57;
-  color: #333;
-  font-weight: bold;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #ffc107;
-}
-
-/* Notice Section */
-.notice {
-  padding: 80px 20px;
-  background: #fff;
-  text-align: center;
-}
-
-.notice h2 {
-  margin-bottom: 30px;
-}
-
-.notice-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.card {
-  background: #e6f0ff;
-  padding: 20px;
-  border-radius: 10px;
-  font-weight: 500;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  background: #d6e4ff;
-}
-
-/* About Section */
-.about {
-  padding: 60px 20px;
-  text-align: center;
-  max-width: 900px;
-  margin: auto;
-}
-
-/* Contact Section */
-.contact {
-  padding: 60px 20px;
-  background: #f0f4f9;
-  text-align: center;
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.contact-item {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-/* Footer */
 footer {
-  background: linear-gradient(90deg, #004080, #0066cc);
-  color: white;
-  text-align: center;
-  padding: 20px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
