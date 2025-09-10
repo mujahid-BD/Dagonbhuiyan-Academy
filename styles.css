@@ -1,11 +1,11 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Hind Siliguri', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
-    direction: rtl; /* Bengali text-এর জন্য RTL, চাইলে ltr করো */
-    text-align: right; /* Bengali-এর জন্য right align */
+    direction: rtl;
+    text-align: right;
 }
 
 header {
@@ -25,12 +25,42 @@ main {
     padding: 20px;
 }
 
-.notice, .news {
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-color: #0056b3;
+    padding: 10px 0;
+}
+
+.nav-menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.nav-menu li a:hover {
+    color: #ffd700;
+}
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.notice, .news, #contact {
     background-color: white;
     padding: 15px;
     margin-bottom: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-in;
 }
 
 .gallery-container {
@@ -48,6 +78,66 @@ main {
     cursor: pointer;
 }
 
+.gallery-img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox-img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 5px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#contact-form input, #contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#contact-form button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#contact-form button:hover {
+    background-color: #0056b3;
+}
+
 footer {
     background-color: #333;
     color: white;
@@ -56,4 +146,53 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+
+.social-links a {
+    color: #ffd700;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* মোবাইল ডিভাইসের জন্য */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #0056b3;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .gallery-img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .notice, .news, #contact {
+        padding: 10px;
+    }
 }
