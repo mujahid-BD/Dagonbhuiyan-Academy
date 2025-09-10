@@ -1,106 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>স্কুল ম্যানেজমেন্ট - Demo</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>High School Management</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="topbar">
-    <div class="container">
-      <h1 class="brand">আমার হাই-স্কুল - Demo</h1>
-      <div class="actions">
-        <select id="roleSelect" aria-label="Switch role">
-          <option value="guest">Guest</option>
-          <option value="admin">Admin</option>
-          <option value="teacher">Teacher</option>
-          <option value="student">Student</option>
-        </select>
-        <button id="loginBtn">Login (simulate)</button>
-      </div>
-    </div>
+  <!-- Header -->
+  <header>
+    <div class="logo">🏫 High School</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">হোম</a></li>
+        <li><a href="#">আমাদের সম্পর্কে</a></li>
+        <li><a href="#">নোটিশ</a></li>
+        <li><a href="#">যোগাযোগ</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main class="container">
-    <nav class="tabs">
-      <button class="tab-btn active" data-tab="dashboard">ড্যাশবোর্ড</button>
-      <button class="tab-btn" data-tab="students">স্টুডেন্ট</button>
-      <button class="tab-btn" data-tab="teachers">টিচার</button>
-      <button class="tab-btn" data-tab="attendance">অ্যাটেনডেন্স</button>
-      <button class="tab-btn" data-tab="exams">এক্সাম</button>
-    </nav>
+  <!-- Banner -->
+  <section class="banner">
+    <h1>আমাদের বিদ্যালয়ে স্বাগতম</h1>
+    <p>শিক্ষাই জাতির মেরুদণ্ড</p>
+  </section>
 
-    <section id="dashboard" class="tab active">
-      <h2>ড্যাশবোর্ড</h2>
-      <div class="cards">
-        <div class="card"><strong id="countStudents">0</strong><div>Students</div></div>
-        <div class="card"><strong id="countTeachers">0</strong><div>Teachers</div></div>
-        <div class="card"><strong id="countAbsent">0</strong><div>Today Absent</div></div>
-      </div>
-      <p>Demo সার্বিক তথ্য। ডাটা সব LocalStorage-এ সেভ হয়।</p>
-    </section>
+  <!-- Notice Board -->
+  <section class="notice">
+    <h2>সর্বশেষ নোটিশ</h2>
+    <ul>
+      <li>📢 আগামী সোমবার ক্লাস বন্ধ থাকবে।</li>
+      <li>📢 এসএসসি পরীক্ষার ফর্ম পূরণ শুরু হবে আগামী সপ্তাহে।</li>
+      <li>📢 বার্ষিক ক্রীড়া প্রতিযোগিতা ১৫ই জানুয়ারি অনুষ্ঠিত হবে।</li>
+    </ul>
+  </section>
 
-    <section id="students" class="tab">
-      <h2>স্টুডেন্ট ম্যানেজমেন্ট</h2>
-      <form id="studentForm" class="inline-form">
-        <input type="text" id="s_name" placeholder="নাম" required>
-        <input type="text" id="s_adm" placeholder="Admission No" required>
-        <select id="s_class"><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select>
-        <button type="submit">Add / Update</button>
-        <button type="button" id="clearStudents">Clear All</button>
-      </form>
+  <!-- About -->
+  <section class="about">
+    <h2>আমাদের সম্পর্কে</h2>
+    <p>এই বিদ্যালয়টি মানসম্মত শিক্ষা প্রদানের জন্য প্রতিষ্ঠিত হয়েছে। শিক্ষার্থীদের সৃজনশীলতা ও নৈতিকতা গড়ে তোলাই আমাদের মূল লক্ষ্য।</p>
+  </section>
 
-      <div class="table-wrap">
-        <table id="studentsTable">
-          <thead><tr><th>Admission</th><th>Name</th><th>Class</th><th>Action</th></tr></thead>
-          <tbody></tbody>
-        </table>
-      </div>
-    </section>
+  <!-- Contact -->
+  <section class="contact">
+    <h2>যোগাযোগ</h2>
+    <p>📍 ঠিকানা: দাগনভূঁইয়া, ফেনী</p>
+    <p>📞 ফোন: ০১৮১২৩৪৫৬৭৮</p>
+    <p>✉️ ইমেইল: info@school.com</p>
+  </section>
 
-    <section id="teachers" class="tab">
-      <h2>Teacher Management</h2>
-      <form id="teacherForm" class="inline-form">
-        <input type="text" id="t_name" placeholder="Name" required>
-        <input type="text" id="t_emp" placeholder="Employee No" required>
-        <button type="submit">Add / Update</button>
-        <button type="button" id="clearTeachers">Clear All</button>
-      </form>
-      <div class="table-wrap">
-        <table id="teachersTable"><thead><tr><th>Emp</th><th>Name</th><th>Action</th></tr></thead><tbody></tbody></table>
-      </div>
-    </section>
-
-    <section id="attendance" class="tab">
-      <h2>Attendance - Today</h2>
-      <div class="attendance-controls">
-        <button id="markAllPresent">Mark All Present</button>
-        <button id="saveAttendance">Save Attendance</button>
-        <button id="exportAttendance">Export CSV</button>
-      </div>
-      <div class="table-wrap">
-        <table id="attendanceTable"><thead><tr><th>Admission</th><th>Name</th><th>Status</th></tr></thead><tbody></tbody></table>
-      </div>
-    </section>
-
-    <section id="exams" class="tab">
-      <h2>Exams</h2>
-      <form id="examForm" class="inline-form">
-        <input type="text" id="e_name" placeholder="Exam Name" required>
-        <input type="date" id="e_date">
-        <button type="submit">Create</button>
-        <button type="button" id="clearExams">Clear All</button>
-      </form>
-      <ul id="examsList"></ul>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    © 2025 আমার হাই-স্কুল - Demo — LocalStorage-based
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 High School. All Rights Reserved.</p>
   </footer>
 
-  <script src="app.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
